@@ -8,11 +8,11 @@
 
 -- Create a temporary table to store the aggregated fan counts per country
 CREATE TEMPORARY TABLE temp_ranked_countries AS
-SELECT origin, SUM(fans) AS total_fans
+SELECT origin, SUM(fans) AS nb_fans
 FROM metal_bands
 GROUP BY origin;
 
 -- Rank the countries based on the total number of fans
-SELECT origin, total_fans
+SELECT origin, nb_fans
 FROM temp_ranked_countries
-ORDER BY total_fans DESC;
+ORDER BY nb_fans DESC;
